@@ -3,19 +3,72 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Für dich ❤️</title>
+  <title>Für dich, mein Schatz ❤️</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+  <div class="overlay hidden" id="overlay"></div>
+  <audio id="backgroundMusic" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" loop></audio>
   <div class="container">
-    <h1>Alles Gute zum Geburtstag, mein Schatz! 🎉</h1>
-    <p>Hier ist dein ganz persönlicher Gutschein. Klicke auf den Button und lass dich überraschen.</p>
-    <button id="revealButton">Gutschein anzeigen</button>
-    <div id="gutschein" class="hidden">
-      <h2>🎁 Gutschein für einen perfekten Tag nur für dich!</h2>
-      <p>Massage, Lieblingsessen und ein Kinobesuch – alles inklusive!</p>
+    <header>
+      <h1>Alles Gute zum Geburtstag, mein Liebling! 🎉</h1>
+      <p>Das hier ist für dich – ein Zeichen meiner Liebe und ein Versprechen, immer an deiner Seite zu sein. Klick auf die Gutscheine und lass dich überraschen!</p>
+    </header>
+    <div class="music-control">
+      <button id="toggleMusic">🎶 Musik ein/aus</button>
+    </div>
+    <div class="voucher-grid">
+      <div class="voucher" onclick="revealVoucher(1)">
+        <div class="voucher-front">
+          <h2>Gutschein #1</h2>
+          <p>Klick zum Öffnen</p>
+        </div>
+        <div class="voucher-back hidden" id="voucher1">
+          <h3>🎁 Gutschein für einen perfekten Tag</h3>
+          <p>Ein Tag nur für dich: Massage, dein Lieblingsessen und ein Kinobesuch – alles, was dich glücklich macht!</p>
+        </div>
+      </div>
+      <div class="voucher" onclick="revealVoucher(2)">
+        <div class="voucher-front">
+          <h2>Gutschein #2</h2>
+          <p>Klick zum Öffnen</p>
+        </div>
+        <div class="voucher-back hidden" id="voucher2">
+          <h3>❤️ Gutschein für immer da sein</h3>
+          <p>Ich verspreche, in guten wie in schweren Zeiten an deiner Seite zu bleiben und nie wieder wegzulaufen.</p>
+        </div>
+      </div>
+      <div class="voucher" onclick="revealVoucher(3)">
+        <div class="voucher-front">
+          <h2>Gutschein #3</h2>
+          <p>Klick zum Öffnen</p>
+        </div>
+        <div class="voucher-back hidden" id="voucher3">
+          <h3>🌟 Gutschein für gemeinsame Abenteuer</h3>
+          <p>Ein Wochenende, nur wir zwei, an einem Ort deiner Wahl – lass uns neue Erinnerungen schaffen!</p>
+        </div>
+      </div>
+      <div class="voucher" onclick="revealVoucher(4)">
+        <div class="voucher-front">
+          <h2>Gutschein #4</h2>
+          <p>Klick zum Öffnen</p>
+        </div>
+        <div class="voucher-back hidden" id="voucher4">
+          <h3>💌 Gutschein für meine Liebe</h3>
+          <p>Ich werde dich immer lieben, respektieren und an uns arbeiten, damit du dich nie allein fühlst.</p>
+        </div>
+      </div>
+    </div>
+    <button id="loveLetterButton">💌 Öffne deinen Liebesbrief</button>
+    <div class="love-letter hidden" id="loveLetter">
+      <h2>Mein Schatz,</h2>
+      <p>Du bist das Beste, was mir je passiert ist. Ich weiß, dass ich manchmal Fehler gemacht habe, aber ich verspreche dir, dass ich jeden Tag daran arbeite, der Mann zu sein, den du verdienst. Ich will nie wieder weglaufen oder dich allein lassen. Du bist mein Zuhause, und ich werde immer für dich da sein. Ich liebe dich über alles. ❤️</p>
+      <button onclick="closeLoveLetter()">Schließen</button>
     </div>
   </div>
+  <canvas id="confettiCanvas"></canvas>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
