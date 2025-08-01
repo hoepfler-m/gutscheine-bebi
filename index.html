@@ -3,71 +3,253 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Für dich, mein Schatz ❤️</title>
+  <title>Für dich, mein Herz ❤️</title>
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="overlay hidden" id="overlay"></div>
-  <audio id="backgroundMusic" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" loop></audio>
   <div class="container">
     <header>
       <h1>Alles Gute zum Geburtstag, mein Liebling! 🎉</h1>
-      <p>Das hier ist für dich – ein Zeichen meiner Liebe und ein Versprechen, immer an deiner Seite zu sein. Klick auf die Gutscheine und lass dich überraschen!</p>
+      <p>Das hier ist mein Geschenk für dich – ein Zeichen meiner Liebe und meines Versprechens, immer für dich da zu sein. Öffne die Gutscheine und lass dich überraschen!</p>
     </header>
-    <div class="music-control">
-      <button id="toggleMusic">🎶 Musik ein/aus</button>
+    <div class="controls">
+      <button id="randomMessageButton">💕 Zufällige Liebesbotschaft</button>
+      <button id="changeBackgroundButton">🌌 Hintergrund ändern</button>
+      <div class="progress-bar">
+        <span id="progressText">0/20 Gutscheine geöffnet</span>
+        <div id="progressFill"></div>
+      </div>
     </div>
     <div class="voucher-grid">
-      <div class="voucher" onclick="revealVoucher(1)">
+      <div class="voucher" data-id="1">
         <div class="voucher-front">
           <h2>Gutschein #1</h2>
           <p>Klick zum Öffnen</p>
         </div>
         <div class="voucher-back hidden" id="voucher1">
-          <h3>🎁 Gutschein für einen perfekten Tag</h3>
-          <p>Ein Tag nur für dich: Massage, dein Lieblingsessen und ein Kinobesuch – alles, was dich glücklich macht!</p>
+          <h3>🎬 Gutschein für einen Kinoabend</h3>
+          <p>Ein Abend im Kino mit deinem Lieblingsfilm und Popcorn!</p>
         </div>
       </div>
-      <div class="voucher" onclick="revealVoucher(2)">
+      <div class="voucher" data-id="2">
         <div class="voucher-front">
           <h2>Gutschein #2</h2>
           <p>Klick zum Öffnen</p>
         </div>
         <div class="voucher-back hidden" id="voucher2">
-          <h3>❤️ Gutschein für immer da sein</h3>
-          <p>Ich verspreche, in guten wie in schweren Zeiten an deiner Seite zu bleiben und nie wieder wegzulaufen.</p>
+          <h3>🍽️ Gutschein für ein Candle-Light-Dinner</h3>
+          <p>Ein romantisches Abendessen, nur wir zwei, bei Kerzenschein.</p>
         </div>
       </div>
-      <div class="voucher" onclick="revealVoucher(3)">
+      <div class="voucher" data-id="3">
         <div class="voucher-front">
           <h2>Gutschein #3</h2>
           <p>Klick zum Öffnen</p>
         </div>
         <div class="voucher-back hidden" id="voucher3">
-          <h3>🌟 Gutschein für gemeinsame Abenteuer</h3>
-          <p>Ein Wochenende, nur wir zwei, an einem Ort deiner Wahl – lass uns neue Erinnerungen schaffen!</p>
+          <h3>🧘 Wellness-Tag</h3>
+          <p>Ein Tag voller Entspannung mit Massage und Sauna.</p>
         </div>
       </div>
-      <div class="voucher" onclick="revealVoucher(4)">
+      <div class="voucher" data-id="4">
         <div class="voucher-front">
           <h2>Gutschein #4</h2>
           <p>Klick zum Öffnen</p>
         </div>
         <div class="voucher-back hidden" id="voucher4">
-          <h3>💌 Gutschein für meine Liebe</h3>
-          <p>Ich werde dich immer lieben, respektieren und an uns arbeiten, damit du dich nie allein fühlst.</p>
+          <h3>🌆 Städtereise</h3>
+          <p>Ein Wochenende in einer Stadt deiner Wahl!</p>
+        </div>
+      </div>
+      <div class="voucher" data-id="5">
+        <div class="voucher-front">
+          <h2>Gutschein #5</h2>
+          <p>Klick zum Öffnen</p>
+        </div>
+        <div class="voucher-back hidden" id="voucher5">
+          <h3>📺 Filmabend zu Hause</h3>
+          <p>Ein gemütlicher Abend mit Snacks und deinen Lieblingsserien.</p>
+        </div>
+      </div>
+      <div class="voucher" data-id="6">
+        <div class="voucher-front">
+          <h2>Gutschein #6</h2>
+          <p>Klick zum Öffnen</p>
+        </div>
+        <div class="voucher-back hidden" id="voucher6">
+          <h3>🌳 Picknick im Park</h3>
+          <p>Ein Nachmittag mit Decke, Snacks und Sonnenschein.</p>
+        </div>
+      </div>
+      <div class="voucher" data-id="7">
+        <div class="voucher-front">
+          <h2>Gutschein #7</h2>
+          <p>Klick zum Öffnen</p>
+        </div>
+        <div class="voucher-back hidden" id="voucher7">
+          <h3>🎨 Gemeinsames Basteln</h3>
+          <p>Ein kreativer Tag, an dem wir etwas Schönes schaffen.</p>
+        </div>
+      </div>
+      <div class="voucher" data-id="8">
+        <div class="voucher-front">
+          <h2>Gutschein #8</h2>
+          <p>Klick zum Öffnen</p>
+        </div>
+        <div class="voucher-back hidden" id="voucher8">
+          <h3>🚶 Spaziergang bei Sonnenuntergang</h3>
+          <p>Ein romantischer Abendspaziergang Hand in Hand.</p>
+        </div>
+      </div>
+      <div class="voucher" data-id="9">
+        <div class="voucher-front">
+          <h2>Gutschein #9</h2>
+          <p>Klick zum Öffnen</p>
+        </div>
+        <div class="voucher-back hidden" id="voucher9">
+          <h3>🍫 Schokoladenverkostung</h3>
+          <p>Ein süßer Abend mit verschiedenen Schokoladen.</p>
+        </div>
+      </div>
+      <div class="voucher" data-id="10">
+        <div class="voucher-front">
+          <h2>Gutschein #10</h2>
+          <p>Klick zum Öffnen</p>
+        </div>
+        <div class="voucher-back hidden" id="voucher10">
+          <h3>📖 Leseabend</h3>
+          <p>Wir lesen uns gegenseitig aus deinem Lieblingsbuch vor.</p>
+        </div>
+      </div>
+      <div class="voucher" data-id="11">
+        <div class="voucher-front">
+          <h2>Gutschein #11</h2>
+          <p>Klick zum Öffnen</p>
+        </div>
+        <div class="voucher-back hidden" id="voucher11">
+          <h3>❤️ Immer an deiner Seite</h3>
+          <p>Ich verspreche, immer für dich da zu sein, egal was kommt.</p>
+        </div>
+      </div>
+      <div class="voucher" data-id="12">
+        <div class="voucher-front">
+          <h2>Gutschein #12</h2>
+          <p>Klick zum Öffnen</p>
+        </div>
+        <div class="voucher-back hidden" id="voucher12">
+          <h3>🙏 Gutschein für Geduld</h3>
+          <p>Ich werde zuhören und verstehen, auch wenn es schwer ist.</p>
+        </div>
+      </div>
+      <div class="voucher" data-id="13">
+        <div class="voucher-front">
+          <h2>Gutschein #13</h2>
+          <p>Klick zum Öffnen</p>
+        </div>
+        <div class="voucher-back hidden" id="voucher13">
+          <h3>🚪 Nie wieder weglaufen</h3>
+          <p>Ich bleibe, auch wenn es im Streit schwer wird.</p>
+        </div>
+      </div>
+      <div class="voucher" data-id="14">
+        <div class="voucher-front">
+          <h2>Gutschein #14</h2>
+          <p>Klick zum Öffnen</p>
+        </div>
+        <div class="voucher-back hidden" id="voucher14">
+          <h3>💕 Gutschein für meine Liebe</h3>
+          <p>Ich werde dich immer lieben und respektieren.</p>
+        </div>
+      </div>
+      <div class="voucher" data-id="15">
+        <div class="voucher-front">
+          <h2>Gutschein #15</h2>
+          <p>Klick zum Öffnen</p>
+        </div>
+        <div class="voucher-back hidden" id="voucher15">
+          <h3>🤗 Gutschein für Umarmungen</h3>
+          <p>Jederzeit eine feste Umarmung, wenn du sie brauchst.</p>
+        </div>
+      </div>
+      <div class="voucher" data-id="16">
+        <div class="voucher-front">
+          <h2>Gutschein #16</h2>
+          <p>Klick zum Öffnen</p>
+        </div>
+        <div class="voucher-back hidden" id="voucher16">
+          <h3>🗣️ Gutschein für Zuhören</h3>
+          <p>Ich bin immer da, um dir zuzuhören, ohne zu urteilen.</p>
+        </div>
+      </div>
+      <div class="voucher" data-id="17">
+        <div class="voucher-front">
+          <h2>Gutschein #17</h2>
+          <p>Klick zum Öffnen</p>
+        </div>
+        <div class="voucher-back hidden" id="voucher17">
+          <h3>🌹 Gutschein für Überraschungen</h3>
+          <p>Eine kleine Überraschung, wann immer du es am wenigsten erwartest.</p>
+        </div>
+      </div>
+      <div class="voucher" data-id="18">
+        <div class="voucher-front">
+          <h2>Gutschein #18</h2>
+          <p>Klick zum Öffnen</p>
+        </div>
+        <div class="voucher-back hidden" id="voucher18">
+          <h3>👥 Gutschein für Teamwork</h3>
+          <p>Wir lösen Probleme zusammen, Hand in Hand.</p>
+        </div>
+      </div>
+      <div class="voucher" data-id="19">
+        <div class="voucher-front">
+          <h2>Gutschein #19</h2>
+          <p>Klick zum Öffnen</p>
+        </div>
+        <div class="voucher-back hidden" id="voucher19">
+          <h3>🌟 Gutschein für gemeinsame Träume</h3>
+          <p>Wir arbeiten an unseren gemeinsamen Zielen, Schritt für Schritt.</p>
+        </div>
+      </div>
+      <div class="voucher" data-id="20">
+        <div class="voucher-front">
+          <h2>Gutschein #20</h2>
+          <p>Klick zum Öffnen</p>
+        </div>
+        <div class="voucher-back hidden" id="voucher20">
+          <h3>💞 Gutschein für ein Leben mit dir</h3>
+          <p>Mein Versprechen, an deiner Seite zu bleiben, für immer.</p>
+        </div>
+      </div>
+    </div>
+    <div class="polaroid-gallery">
+      <h2>Unsere Erinnerungen 📸</h2>
+      <div class="polaroid-grid">
+        <div class="polaroid">
+          <div class="polaroid-image" style="background-image: url('https://via.placeholder.com/200x150?text=Erinnerung+1')"></div>
+          <p>Unsere erste Begegnung</p>
+        </div>
+        <div class="polaroid">
+          <div class="polaroid-image" style="background-image: url('https://via.placeholder.com/200x150?text=Erinnerung+2')"></div>
+          <p>Unser erster Kuss</p>
+        </div>
+        <div class="polaroid">
+          <div class="polaroid-image" style="background-image: url('https://via.placeholder.com/200x150?text=Erinnerung+3')"></div>
+          <p>Ein besonderer Moment</p>
         </div>
       </div>
     </div>
     <button id="loveLetterButton">💌 Öffne deinen Liebesbrief</button>
     <div class="love-letter hidden" id="loveLetter">
-      <h2>Mein Schatz,</h2>
-      <p>Du bist das Beste, was mir je passiert ist. Ich weiß, dass ich manchmal Fehler gemacht habe, aber ich verspreche dir, dass ich jeden Tag daran arbeite, der Mann zu sein, den du verdienst. Ich will nie wieder weglaufen oder dich allein lassen. Du bist mein Zuhause, und ich werde immer für dich da sein. Ich liebe dich über alles. ❤️</p>
+      <h2>Mein Liebling,</h2>
+      <p id="letterText"></p>
       <button onclick="closeLoveLetter()">Schließen</button>
     </div>
   </div>
   <canvas id="confettiCanvas"></canvas>
+  <canvas id="sparkleCanvas"></canvas>
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
   <script src="script.js"></script>
 </body>
