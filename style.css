@@ -5,54 +5,88 @@
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   background: linear-gradient(135deg, #8B0000, #4B0082);
   color: white;
   text-align: center;
   min-height: 100vh;
   overflow-x: hidden;
   position: relative;
+  transition: background 1s ease;
 }
 
 .container {
   padding: 50px 20px;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
 }
 
 header h1 {
-  font-family: 'Great Vibes', cursive;
-  font-size: 3.5rem;
-  color: #FFD700;
+  font-family: 'Parisienne', cursive;
+  font-size: 4rem;
+  color: #C0C0C0;
   margin-bottom: 20px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 }
 
 header p {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   line-height: 1.6;
-  max-width: 600px;
+  max-width: 700px;
   margin: 0 auto 30px;
 }
 
-.music-control button {
-  background: #FFD700;
-  color: #8B0000;
-  border: none;
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.controls button {
+  background: #8B0000;
+  color: white;
+  border: 2px solid #C0C0C0;
   padding: 10px 20px;
   font-size: 1rem;
   border-radius: 8px;
   cursor: pointer;
-  margin-bottom: 30px;
+  transition: background 0.3s;
 }
 
-.music-control button:hover {
-  background: #FFE4B5;
+.controls button:hover {
+  background: #A52A2A;
+}
+
+.progress-bar {
+  width: 200px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+#progressFill {
+  height: 100%;
+  background: #C0C0C0;
+  width: 0;
+  transition: width 0.5s ease;
+}
+
+#progressText {
+  position: absolute;
+  top: -25px;
+  left: 0;
+  width: 100%;
+  font-size: 0.9rem;
+  color: #C0C0C0;
 }
 
 .voucher-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 20px;
   margin-bottom: 40px;
 }
@@ -60,20 +94,30 @@ header p {
 .voucher {
   perspective: 1000px;
   cursor: pointer;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.voucher:hover {
+  transform: scale(1.05);
 }
 
 .voucher-front, .voucher-back {
-  background: rgba(255, 255, 255, 0.1);
-  border: 2px solid #FFD700;
-  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid #C0C0C0;
+  border-radius: 12px;
   padding: 20px;
-  min-height: 200px;
+  min-height: 180px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  transition: transform 0.6s;
+  align-items: center;
+  transition: transform 0.6s ease, opacity 0.6s ease;
   backface-visibility: hidden;
-  position: relative;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .voucher-front {
@@ -82,24 +126,21 @@ header p {
 
 .voucher-back {
   transform: rotateY(180deg);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
 }
 
 .voucher.flipped .voucher-front {
   transform: rotateY(180deg);
+  opacity: 0;
 }
 
 .voucher.flipped .voucher-back {
   transform: rotateY(0deg);
+  opacity: 1;
 }
 
 .voucher h2, .voucher-back h3 {
-  font-family: 'Great Vibes', cursive;
-  color: #FFD700;
+  font-family: 'Parisienne', cursive;
+  color: #C0C0C0;
   font-size: 2rem;
 }
 
@@ -112,10 +153,53 @@ header p {
   display: none;
 }
 
+.polaroid-gallery {
+  margin: 40px 0;
+}
+
+.polaroid-gallery h2 {
+  font-family: 'Parisienne', cursive;
+  font-size: 2.5rem;
+  color: #C0C0C0;
+  margin-bottom: 20px;
+}
+
+.polaroid-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.polaroid {
+  background: white;
+  padding: 10px;
+  width: 220px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transform: rotate(-2deg);
+}
+
+.polaroid:nth-child(even) {
+  transform: rotate(2deg);
+}
+
+.polaroid-image {
+  width: 200px;
+  height: 150px;
+  background-size: cover;
+  background-position: center;
+}
+
+.polaroid p {
+  color: #333;
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
 #loveLetterButton {
   background: #8B0000;
   color: white;
-  border: 2px solid #FFD700;
+  border: 2px solid #C0C0C0;
   padding: 15px 30px;
   font-size: 1.2rem;
   border-radius: 8px;
@@ -141,7 +225,7 @@ header p {
 }
 
 .love-letter h2 {
-  font-family: 'Great Vibes', cursive;
+  font-family: 'Parisienne', cursive;
   font-size: 2.5rem;
   margin-bottom: 20px;
 }
@@ -190,7 +274,7 @@ header p {
   100% { transform: translateY(-100px) scale(0.5); opacity: 0; }
 }
 
-#confettiCanvas {
+#confettiCanvas, #sparkleCanvas {
   position: fixed;
   top: 0;
   left: 0;
@@ -201,7 +285,9 @@ header p {
 }
 
 @media (max-width: 768px) {
-  header h1 { font-size: 2.5rem; }
+  header h1 { font-size: 2.8rem; }
   .voucher-grid { grid-template-columns: 1fr; }
   .love-letter { padding: 20px; margin: 20px; }
+  .polaroid { width: 180px; }
+  .polaroid-image { width: 160px; height: 120px; }
 }
