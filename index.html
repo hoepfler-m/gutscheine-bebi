@@ -3,254 +3,360 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Eine liebevolle Geburtstags-Website mit besonderen Gutscheinen und persönlichen Nachrichten">
+  <meta name="robots" content="noindex, nofollow">
   <title>Für dich, mein Herz ❤️</title>
+  
+  <!-- Preload kritische Ressourcen -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:wght@400;700&display=swap"></noscript>
+  
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="overlay hidden" id="overlay"></div>
-  <div class="container">
-    <header>
-      <h1>Alles Gute zum Geburtstag, mein Liebling! 🎉</h1>
-      <p>Das hier ist mein Geschenk für dich – ein Zeichen meiner Liebe und meines Versprechens, immer für dich da zu sein. Öffne die Gutscheine und lass dich überraschen!</p>
-    </header>
-    <div class="controls">
-      <button id="randomMessageButton">💕 Zufällige Liebesbotschaft</button>
-      <button id="changeBackgroundButton">🌌 Hintergrund ändern</button>
-      <div class="progress-bar">
-        <span id="progressText">0/20 Gutscheine geöffnet</span>
-        <div id="progressFill"></div>
-      </div>
-    </div>
-    <div class="voucher-grid">
-      <div class="voucher" data-id="1">
-        <div class="voucher-front">
-          <h2>Gutschein #1</h2>
-          <p>Klick zum Öffnen</p>
-        </div>
-        <div class="voucher-back hidden" id="voucher1">
-          <h3>🎬 Gutschein für einen Kinoabend</h3>
-          <p>Ein Abend im Kino mit deinem Lieblingsfilm und Popcorn!</p>
-        </div>
-      </div>
-      <div class="voucher" data-id="2">
-        <div class="voucher-front">
-          <h2>Gutschein #2</h2>
-          <p>Klick zum Öffnen</p>
-        </div>
-        <div class="voucher-back hidden" id="voucher2">
-          <h3>🍽️ Gutschein für ein Candle-Light-Dinner</h3>
-          <p>Ein romantisches Abendessen, nur wir zwei, bei Kerzenschein.</p>
-        </div>
-      </div>
-      <div class="voucher" data-id="3">
-        <div class="voucher-front">
-          <h2>Gutschein #3</h2>
-          <p>Klick zum Öffnen</p>
-        </div>
-        <div class="voucher-back hidden" id="voucher3">
-          <h3>🧘 Wellness-Tag</h3>
-          <p>Ein Tag voller Entspannung mit Massage und Sauna.</p>
-        </div>
-      </div>
-      <div class="voucher" data-id="4">
-        <div class="voucher-front">
-          <h2>Gutschein #4</h2>
-          <p>Klick zum Öffnen</p>
-        </div>
-        <div class="voucher-back hidden" id="voucher4">
-          <h3>🌆 Städtereise</h3>
-          <p>Ein Wochenende in einer Stadt deiner Wahl!</p>
-        </div>
-      </div>
-      <div class="voucher" data-id="5">
-        <div class="voucher-front">
-          <h2>Gutschein #5</h2>
-          <p>Klick zum Öffnen</p>
-        </div>
-        <div class="voucher-back hidden" id="voucher5">
-          <h3>📺 Filmabend zu Hause</h3>
-          <p>Ein gemütlicher Abend mit Snacks und deinen Lieblingsserien.</p>
-        </div>
-      </div>
-      <div class="voucher" data-id="6">
-        <div class="voucher-front">
-          <h2>Gutschein #6</h2>
-          <p>Klick zum Öffnen</p>
-        </div>
-        <div class="voucher-back hidden" id="voucher6">
-          <h3>🌳 Picknick im Park</h3>
-          <p>Ein Nachmittag mit Decke, Snacks und Sonnenschein.</p>
-        </div>
-      </div>
-      <div class="voucher" data-id="7">
-        <div class="voucher-front">
-          <h2>Gutschein #7</h2>
-          <p>Klick zum Öffnen</p>
-        </div>
-        <div class="voucher-back hidden" id="voucher7">
-          <h3>🎨 Gemeinsames Basteln</h3>
-          <p>Ein kreativer Tag, an dem wir etwas Schönes schaffen.</p>
-        </div>
-      </div>
-      <div class="voucher" data-id="8">
-        <div class="voucher-front">
-          <h2>Gutschein #8</h2>
-          <p>Klick zum Öffnen</p>
-        </div>
-        <div class="voucher-back hidden" id="voucher8">
-          <h3>🚶 Spaziergang bei Sonnenuntergang</h3>
-          <p>Ein romantischer Abendspaziergang Hand in Hand.</p>
-        </div>
-      </div>
-      <div class="voucher" data-id="9">
-        <div class="voucher-front">
-          <h2>Gutschein #9</h2>
-          <p>Klick zum Öffnen</p>
-        </div>
-        <div class="voucher-back hidden" id="voucher9">
-          <h3>🍫 Schokoladenverkostung</h3>
-          <p>Ein süßer Abend mit verschiedenen Schokoladen.</p>
-        </div>
-      </div>
-      <div class="voucher" data-id="10">
-        <div class="voucher-front">
-          <h2>Gutschein #10</h2>
-          <p>Klick zum Öffnen</p>
-        </div>
-        <div class="voucher-back hidden" id="voucher10">
-          <h3>📖 Leseabend</h3>
-          <p>Wir lesen uns gegenseitig aus deinem Lieblingsbuch vor.</p>
-        </div>
-      </div>
-      <div class="voucher" data-id="11">
-        <div class="voucher-front">
-          <h2>Gutschein #11</h2>
-          <p>Klick zum Öffnen</p>
-        </div>
-        <div class="voucher-back hidden" id="voucher11">
-          <h3>❤️ Immer an deiner Seite</h3>
-          <p>Ich verspreche, immer für dich da zu sein, egal was kommt.</p>
-        </div>
-      </div>
-      <div class="voucher" data-id="12">
-        <div class="voucher-front">
-          <h2>Gutschein #12</h2>
-          <p>Klick zum Öffnen</p>
-        </div>
-        <div class="voucher-back hidden" id="voucher12">
-          <h3>🙏 Gutschein für Geduld</h3>
-          <p>Ich werde zuhören und verstehen, auch wenn es schwer ist.</p>
-        </div>
-      </div>
-      <div class="voucher" data-id="13">
-        <div class="voucher-front">
-          <h2>Gutschein #13</h2>
-          <p>Klick zum Öffnen</p>
-        </div>
-        <div class="voucher-back hidden" id="voucher13">
-          <h3>🚪 Nie wieder weglaufen</h3>
-          <p>Ich bleibe, auch wenn es im Streit schwer wird.</p>
-        </div>
-      </div>
-      <div class="voucher" data-id="14">
-        <div class="voucher-front">
-          <h2>Gutschein #14</h2>
-          <p>Klick zum Öffnen</p>
-        </div>
-        <div class="voucher-back hidden" id="voucher14">
-          <h3>💕 Gutschein für meine Liebe</h3>
-          <p>Ich werde dich immer lieben und respektieren.</p>
-        </div>
-      </div>
-      <div class="voucher" data-id="15">
-        <div class="voucher-front">
-          <h2>Gutschein #15</h2>
-          <p>Klick zum Öffnen</p>
-        </div>
-        <div class="voucher-back hidden" id="voucher15">
-          <h3>🤗 Gutschein für Umarmungen</h3>
-          <p>Jederzeit eine feste Umarmung, wenn du sie brauchst.</p>
-        </div>
-      </div>
-      <div class="voucher" data-id="16">
-        <div class="voucher-front">
-          <h2>Gutschein #16</h2>
-          <p>Klick zum Öffnen</p>
-        </div>
-        <div class="voucher-back hidden" id="voucher16">
-          <h3>🗣️ Gutschein für Zuhören</h3>
-          <p>Ich bin immer da, um dir zuzuhören, ohne zu urteilen.</p>
-        </div>
-      </div>
-      <div class="voucher" data-id="17">
-        <div class="voucher-front">
-          <h2>Gutschein #17</h2>
-          <p>Klick zum Öffnen</p>
-        </div>
-        <div class="voucher-back hidden" id="voucher17">
-          <h3>🌹 Gutschein für Überraschungen</h3>
-          <p>Eine kleine Überraschung, wann immer du es am wenigsten erwartest.</p>
-        </div>
-      </div>
-      <div class="voucher" data-id="18">
-        <div class="voucher-front">
-          <h2>Gutschein #18</h2>
-          <p>Klick zum Öffnen</p>
-        </div>
-        <div class="voucher-back hidden" id="voucher18">
-          <h3>👥 Gutschein für Teamwork</h3>
-          <p>Wir lösen Probleme zusammen, Hand in Hand.</p>
-        </div>
-      </div>
-      <div class="voucher" data-id="19">
-        <div class="voucher-front">
-          <h2>Gutschein #19</h2>
-          <p>Klick zum Öffnen</p>
-        </div>
-        <div class="voucher-back hidden" id="voucher19">
-          <h3>🌟 Gutschein für gemeinsame Träume</h3>
-          <p>Wir arbeiten an unseren gemeinsamen Zielen, Schritt für Schritt.</p>
-        </div>
-      </div>
-      <div class="voucher" data-id="20">
-        <div class="voucher-front">
-          <h2>Gutschein #20</h2>
-          <p>Klick zum Öffnen</p>
-        </div>
-        <div class="voucher-back hidden" id="voucher20">
-          <h3>💞 Gutschein für ein Leben mit dir</h3>
-          <p>Mein Versprechen, an deiner Seite zu bleiben, für immer.</p>
-        </div>
-      </div>
-    </div>
-    <div class="polaroid-gallery">
-      <h2>Unsere Erinnerungen 📸</h2>
-      <div class="polaroid-grid">
-        <div class="polaroid">
-          <div class="polaroid-image" style="background-image: url('https://via.placeholder.com/200x150?text=Erinnerung+1')"></div>
-          <p>Unsere erste Begegnung</p>
-        </div>
-        <div class="polaroid">
-          <div class="polaroid-image" style="background-image: url('https://via.placeholder.com/200x150?text=Erinnerung+2')"></div>
-          <p>Unser erster Kuss</p>
-        </div>
-        <div class="polaroid">
-          <div class="polaroid-image" style="background-image: url('https://via.placeholder.com/200x150?text=Erinnerung+3')"></div>
-          <p>Ein besonderer Moment</p>
-        </div>
-      </div>
-    </div>
-    <button id="loveLetterButton">💌 Öffne deinen Liebesbrief</button>
-    <div class="love-letter hidden" id="loveLetter">
-      <h2>Mein Liebling,</h2>
-      <p id="letterText"></p>
-      <button onclick="closeLoveLetter()">Schließen</button>
-    </div>
+  <a href="#main-content" class="skip-link">Zum Hauptinhalt springen</a>
+  
+  <nav role="navigation" aria-label="Hauptnavigation">
+    <ul>
+      <li><a href="#home" class="active" aria-current="page">Home</a></li>
+      <li><a href="#our-story">Unsere Geschichte</a></li>
+      <li><a href="#photo-album">Fotoalbum</a></li>
+      <li><a href="#love-quiz">Liebes-Quiz</a></li>
+      <li><a href="#future-plans">Zukunftspläne</a></li>
+      <li><a href="#love-diary">Tagebuch der Liebe</a></li>
+    </ul>
+  </nav>
+  
+  <div class="love-ticker" role="marquee" aria-label="Laufende Liebesbotschaften">
+    <span id="tickerText" aria-live="polite"></span>
   </div>
-  <canvas id="confettiCanvas"></canvas>
-  <canvas id="sparkleCanvas"></canvas>
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
-  <script src="script.js"></script>
+  
+  <div class="overlay hidden" id="overlay" aria-hidden="true"></div>
+  
+  <div class="container">
+    <main id="main-content">
+      <section id="home" aria-labelledby="home-heading">
+        <header>
+          <h1 id="home-heading">Alles Gute zum Geburtstag, mein Liebling! 🎉</h1>
+          <p>Das hier ist mein Geschenk für dich, ein Zeichen meiner Liebe und meines Versprechens, immer für dich da zu sein. Öffne die Gutscheine und lass dich überraschen!</p>
+        </header>
+        
+        <div class="controls" role="group" aria-label="Interaktive Steuerelemente">
+          <button type="button" id="randomMessageButton" aria-describedby="random-message-desc">
+            💕 Zufällige Liebesbotschaft
+          </button>
+          <span id="random-message-desc" class="sr-only">Zeigt eine zufällige romantische Nachricht an</span>
+          
+          <button type="button" id="changeBackgroundButton" aria-describedby="bg-change-desc">
+            🌌 Hintergrund ändern
+          </button>
+          <span id="bg-change-desc" class="sr-only">Ändert die Hintergrundfarben der Website</span>
+          
+          <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="20" aria-valuenow="0" aria-labelledby="progress-label">
+            <span id="progressText" id="progress-label">0/20 Gutscheine geöffnet</span>
+            <div id="progressFill"></div>
+          </div>
+        </div>
+        
+        <div class="voucher-grid" role="region" aria-label="Gutscheine zum Öffnen">
+          <article class="voucher" data-id="1" tabindex="0" role="button" aria-expanded="false" aria-labelledby="voucher-1-title">
+            <div class="voucher-front">
+              <h2 id="voucher-1-title">Gutschein #1</h2>
+              <p>Klick zum Öffnen</p>
+            </div>
+            <div class="voucher-back">
+              <h3>❤️ Immer an deiner Seite</h3>
+              <p>Ich verspreche, immer für dich da zu sein, egal was kommt. In guten wie in schweren Zeiten werde ich deine Hand halten.</p>
+            </div>
+          </article>
+          
+          <article class="voucher" data-id="2" tabindex="0" role="button" aria-expanded="false" aria-labelledby="voucher-2-title">
+            <div class="voucher-front">
+              <h2 id="voucher-2-title">Gutschein #2</h2>
+              <p>Klick zum Öffnen</p>
+            </div>
+            <div class="voucher-back">
+              <h3>🎬 Gutschein für einen Kinoabend</h3>
+              <p>Ein Abend im Kino mit deinem Lieblingsfilm, Popcorn und gemütlichem Kuscheln danach.</p>
+            </div>
+          </article>
+          
+          <article class="voucher" data-id="3" tabindex="0" role="button" aria-expanded="false" aria-labelledby="voucher-3-title">
+            <div class="voucher-front">
+              <h2 id="voucher-3-title">Gutschein #3</h2>
+              <p>Klick zum Öffnen</p>
+            </div>
+            <div class="voucher-back">
+              <h3>🙏 Gutschein für Geduld</h3>
+              <p>Ich werde zuhören und verstehen, auch wenn es schwer ist, und dir immer die Zeit geben, die du brauchst.</p>
+            </div>
+          </article>
+          
+          <article class="voucher" data-id="4" tabindex="0" role="button" aria-expanded="false" aria-labelledby="voucher-4-title">
+            <div class="voucher-front">
+              <h2 id="voucher-4-title">Gutschein #4</h2>
+              <p>Klick zum Öffnen</p>
+            </div>
+            <div class="voucher-back">
+              <h3>🍽️ Gutschein für ein Candle-Light-Dinner</h3>
+              <p>Ein romantisches Abendessen, nur wir zwei, bei Kerzenschein, mit deinem Lieblingsessen.</p>
+            </div>
+          </article>
+          
+          <article class="voucher" data-id="5" tabindex="0" role="button" aria-expanded="false" aria-labelledby="voucher-5-title">
+            <div class="voucher-front">
+              <h2 id="voucher-5-title">Gutschein #5</h2>
+              <p>Klick zum Öffnen</p>
+            </div>
+            <div class="voucher-back">
+              <h3>🚪 Nie wieder weglaufen</h3>
+              <p>Ich bleibe, auch wenn es im Streit schwer wird, und arbeite an uns, egal was passiert.</p>
+            </div>
+          </article>
+          
+          <article class="voucher" data-id="6" tabindex="0" role="button" aria-expanded="false" aria-labelledby="voucher-6-title">
+            <div class="voucher-front">
+              <h2 id="voucher-6-title">Gutschein #6</h2>
+              <p>Klick zum Öffnen</p>
+            </div>
+            <div class="voucher-back">
+              <h3>🧘 Wellness-Tag</h3>
+              <p>Ein Tag voller Entspannung mit Massage, Sauna und allem, was dir gut tut.</p>
+            </div>
+          </article>
+          
+          <article class="voucher" data-id="7" tabindex="0" role="button" aria-expanded="false" aria-labelledby="voucher-7-title">
+            <div class="voucher-front">
+              <h2 id="voucher-7-title">Gutschein #7</h2>
+              <p>Klick zum Öffnen</p>
+            </div>
+            <div class="voucher-back">
+              <h3>💕 Gutschein für meine Liebe</h3>
+              <p>Ich werde dich immer lieben, respektieren und dir zeigen, wie viel du mir bedeutest.</p>
+            </div>
+          </article>
+          
+          <article class="voucher" data-id="8" tabindex="0" role="button" aria-expanded="false" aria-labelledby="voucher-8-title">
+            <div class="voucher-front">
+              <h2 id="voucher-8-title">Gutschein #8</h2>
+              <p>Klick zum Öffnen</p>
+            </div>
+            <div class="voucher-back">
+              <h3>🌆 Städtereise</h3>
+              <p>Ein Wochenende in einer Stadt deiner Wahl, voller Abenteuer und schöner Momente.</p>
+            </div>
+          </article>
+          
+          <article class="voucher" data-id="9" tabindex="0" role="button" aria-expanded="false" aria-labelledby="voucher-9-title">
+            <div class="voucher-front">
+              <h2 id="voucher-9-title">Gutschein #9</h2>
+              <p>Klick zum Öffnen</p>
+            </div>
+            <div class="voucher-back">
+              <h3>🤗 Gutschein für Umarmungen</h3>
+              <p>Jederzeit eine feste Umarmung, wenn du sie brauchst, um dich sicher zu fühlen.</p>
+            </div>
+          </article>
+          
+          <article class="voucher" data-id="10" tabindex="0" role="button" aria-expanded="false" aria-labelledby="voucher-10-title">
+            <div class="voucher-front">
+              <h2 id="voucher-10-title">Gutschein #10</h2>
+              <p>Klick zum Öffnen</p>
+            </div>
+            <div class="voucher-back">
+              <h3>📺 Filmabend zu Hause</h3>
+              <p>Ein gemütlicher Abend mit Snacks, deinen Lieblingsserien und ganz viel Kuscheln.</p>
+            </div>
+          </article>
+          
+          <article class="voucher" data-id="11" tabindex="0" role="button" aria-expanded="false" aria-labelledby="voucher-11-title">
+            <div class="voucher-front">
+              <h2 id="voucher-11-title">Gutschein #11</h2>
+              <p>Klick zum Öffnen</p>
+            </div>
+            <div class="voucher-back">
+              <h3>🗣️ Gutschein für Zuhören</h3>
+              <p>Ich bin immer da, um dir zuzuhören, ohne zu urteilen, egal worüber du sprechen möchtest.</p>
+            </div>
+          </article>
+          
+          <article class="voucher" data-id="12" tabindex="0" role="button" aria-expanded="false" aria-labelledby="voucher-12-title">
+            <div class="voucher-front">
+              <h2 id="voucher-12-title">Gutschein #12</h2>
+              <p>Klick zum Öffnen</p>
+            </div>
+            <div class="voucher-back">
+              <h3>🌳 Picknick im Park</h3>
+              <p>Ein Nachmittag mit Decke, Snacks, Sonnenschein und entspannten Gesprächen.</p>
+            </div>
+          </article>
+          
+          <article class="voucher" data-id="13" tabindex="0" role="button" aria-expanded="false" aria-labelledby="voucher-13-title">
+            <div class="voucher-front">
+              <h2 id="voucher-13-title">Gutschein #13</h2>
+              <p>Klick zum Öffnen</p>
+            </div>
+            <div class="voucher-back">
+              <h3>🌹 Gutschein für Überraschungen</h3>
+              <p>Eine kleine Überraschung, wann immer du es am wenigsten erwartest, um dir ein Lächeln zu schenken.</p>
+            </div>
+          </article>
+          
+          <article class="voucher" data-id="14" tabindex="0" role="button" aria-expanded="false" aria-labelledby="voucher-14-title">
+            <div class="voucher-front">
+              <h2 id="voucher-14-title">Gutschein #14</h2>
+              <p>Klick zum Öffnen</p>
+            </div>
+            <div class="voucher-back">
+              <h3>🎨 Gemeinsames Basteln</h3>
+              <p>Ein kreativer Tag, an dem wir etwas Schönes schaffen, nur für uns zwei.</p>
+            </div>
+          </article>
+          
+          <article class="voucher" data-id="15" tabindex="0" role="button" aria-expanded="false" aria-labelledby="voucher-15-title">
+            <div class="voucher-front">
+              <h2 id="voucher-15-title">Gutschein #15</h2>
+              <p>Klick zum Öffnen</p>
+            </div>
+            <div class="voucher-back">
+              <h3>👥 Gutschein für Teamwork</h3>
+              <p>Wir lösen Probleme zusammen, Hand in Hand, und wachsen als Team.</p>
+            </div>
+          </article>
+          
+          <article class="voucher" data-id="16" tabindex="0" role="button" aria-expanded="false" aria-labelledby="voucher-16-title">
+            <div class="voucher-front">
+              <h2 id="voucher-16-title">Gutschein #16</h2>
+              <p>Klick zum Öffnen</p>
+            </div>
+            <div class="voucher-back">
+              <h3>🚶 Spaziergang bei Sonnenuntergang</h3>
+              <p>Ein romantischer Abendspaziergang Hand in Hand, während die Sonne untergeht.</p>
+            </div>
+          </article>
+          
+          <article class="voucher" data-id="17" tabindex="0" role="button" aria-expanded="false" aria-labelledby="voucher-17-title">
+            <div class="voucher-front">
+              <h2 id="voucher-17-title">Gutschein #17</h2>
+              <p>Klick zum Öffnen</p>
+            </div>
+            <div class="voucher-back">
+              <h3>🌟 Gutschein für gemeinsame Träume</h3>
+              <p>Wir arbeiten an unseren gemeinsamen Zielen, Schritt für Schritt, für unsere Zukunft.</p>
+            </div>
+          </article>
+          
+          <article class="voucher" data-id="18" tabindex="0" role="button" aria-expanded="false" aria-labelledby="voucher-18-title">
+            <div class="voucher-front">
+              <h2 id="voucher-18-title">Gutschein #18</h2>
+              <p>Klick zum Öffnen</p>
+            </div>
+            <div class="voucher-back">
+              <h3>🍫 Schokoladenverkostung</h3>
+              <p>Ein süßer Abend mit verschiedenen Schokoladen und gemütlichen Gesprächen.</p>
+            </div>
+          </article>
+          
+          <article class="voucher" data-id="19" tabindex="0" role="button" aria-expanded="false" aria-labelledby="voucher-19-title">
+            <div class="voucher-front">
+              <h2 id="voucher-19-title">Gutschein #19</h2>
+              <p>Klick zum Öffnen</p>
+            </div>
+            <div class="voucher-back">
+              <h3>💌 Gutschein für kleine Liebesbriefe</h3>
+              <p>Ich schreibe dir regelmäßig kleine Botschaften, um dir meine Liebe zu zeigen, wann immer du sie brauchst.</p>
+            </div>
+          </article>
+          
+          <article class="voucher" data-id="20" tabindex="0" role="button" aria-expanded="false" aria-labelledby="voucher-20-title">
+            <div class="voucher-front">
+              <h2 id="voucher-20-title">Hauptgutschein</h2>
+              <p>Klick zum Öffnen</p>
+            </div>
+            <div class="voucher-back">
+              <h3>💞 Für immer und ewig an deiner Seite</h3>
+              <p>Mein heiliges Versprechen: Ich bleibe an deiner Seite, komme was wolle, für immer und ewig, mit all meiner Liebe.</p>
+            </div>
+          </article>
+        </div>
+        
+        <button type="button" id="loveLetterButton">💌 Öffne deinen Liebesbrief</button>
+        
+        <div class="love-letter hidden" id="loveLetter" role="dialog" aria-labelledby="letter-heading" aria-modal="true">
+          <h2 id="letter-heading">Mein Liebling,</h2>
+          <div id="letterText">
+            <p>Mein Schatz,</p>
+            <p>Du bist der wichtigste Mensch in meinem Leben, mein Licht in dunklen Zeiten und mein Grund, jeden Tag besser zu sein. Ich weiß, dass ich in der Vergangenheit Fehler gemacht habe, manchmal war ich egoistisch, bin im Streit gegangen und habe dich allein gelassen. Das tut mir unendlich leid, und ich verspreche dir von Herzen, dass ich daran arbeite, der Partner zu sein, den du verdienst. Nie wieder werde ich weglaufen, nie wieder werde ich dich im Stich lassen. Stattdessen will ich an deiner Seite stehen, dich in den Arm nehmen, dir zuhören und mit dir gemeinsam jedes Hindernis überwinden.</p>
+            <p>Du machst mein Leben so viel bunter und reicher. Dein Lächeln bringt mich zum Strahlen, dein Lachen ist meine liebste Melodie, und deine Nähe gibt mir das Gefühl, zu Hause zu sein. Diese Gutscheine sind kleine Versprechen, die ich dir gebe, für gemeinsame Abenteuer, für ruhige Momente, für Liebe und Respekt. Aber mein größtes Versprechen ist, dass ich immer für dich da sein werde, in guten wie in schweren Zeiten. Ich will mit dir lachen, träumen, reisen und ein Leben aufbauen, das uns beide glücklich macht.</p>
+            <p>Ich denke an all die kleinen Momente, die uns verbinden, wie wir zusammen gelacht haben, wie du mich in den Arm genommen hast, wenn ich es am meisten brauchte, oder wie wir einfach still beieinander saßen und die Welt perfekt war. Ich will mehr solcher Momente schaffen, jeden Tag. Du bist mein Ein und Alles, und ich werde alles tun, um dich glücklich zu machen. Ich liebe dich mehr, als Worte je ausdrücken könnten, und ich freue mich auf eine Zukunft mit dir, voller Liebe, Vertrauen und unvergesslicher Erinnerungen.</p>
+            <p>In Liebe, für immer dein,<br>Dein Schatz</p>
+          </div>
+          <button type="button" onclick="closeLoveLetter()" aria-label="Liebesbrief schließen">Schließen</button>
+        </div>
+      </section>
+      
+      <section id="our-story" class="section hidden" aria-labelledby="story-heading">
+        <h2 id="story-heading">Unsere Geschichte</h2>
+        <p>Hier könnte die Geschichte eurer Beziehung stehen, vom ersten Treffen bis zu den wichtigsten Momenten. Zum Beispiel: „Wir trafen uns an einem verregneten Tag, und seitdem ist jeder Tag mit dir wie Sonnenschein."</p>
+      </section>
+      
+      <section id="photo-album" class="section hidden" aria-labelledby="album-heading">
+        <h2 id="album-heading">Fotoalbum</h2>
+        <div class="polaroid-gallery" role="region" aria-label="Sammlung von Erinnerungsfotos">
+          <figure class="polaroid" tabindex="0" role="button" aria-labelledby="photo-1-caption">
+            <div class="polaroid-image" style="background-image: url('https://via.placeholder.com/200x150?text=Erinnerung+1')" role="img" aria-label="Erstes gemeinsames Foto"></div>
+            <figcaption id="photo-1-caption">Unsere erste Begegnung</figcaption>
+          </figure>
+          <figure class="polaroid" tabindex="0" role="button" aria-labelledby="photo-2-caption">
+            <div class="polaroid-image" style="background-image: url('https://via.placeholder.com/200x150?text=Erinnerung+2')" role="img" aria-label="Romantischer Moment"></div>
+            <figcaption id="photo-2-caption">Unser erster Kuss</figcaption>
+          </figure>
+          <figure class="polaroid" tabindex="0" role="button" aria-labelledby="photo-3-caption">
+            <div class="polaroid-image" style="background-image: url('https://via.placeholder.com/200x150?text=Erinnerung+3')" role="img" aria-label="Besonderer Moment"></div>
+            <figcaption id="photo-3-caption">Ein besonderer Moment</figcaption>
+          </figure>
+        </div>
+      </section>
+      
+      <section id="love-quiz" class="section hidden" aria-labelledby="quiz-heading">
+        <h2 id="quiz-heading">Liebes-Quiz</h2>
+        <form class="quiz-container" role="form" aria-labelledby="quiz-heading">
+          <fieldset class="quiz-question">
+            <legend>Wo war unser erstes Date?</legend>
+            <label><input type="radio" name="q1" value="a" required> Im Café</label>
+            <label><input type="radio" name="q1" value="b" required> Im Park</label>
+            <label><input type="radio" name="q1" value="c" required> Im Kino</label>
+          </fieldset>
+          <fieldset class="quiz-question">
+            <legend>Was ist mein Lieblingsessen?</legend>
+            <label><input type="radio" name="q2" value="a" required> Pizza</label>
+            <label><input type="radio" name="q2" value="b" required> Sushi</label>
+            <label><input type="radio" name="q2" value="c" required> Pasta</label>
+          </fieldset>
+          <button type="button" onclick="checkQuiz()">Antworten prüfen</button>
+          <p id="quizResult" aria-live="polite"></p>
+        </form>
+      </section>
+      
+      <section id="future-plans" class="section hidden" aria-labelledby="future-heading">
+        <h2 id="future-heading">Zukunftspläne</h2>
+        <p>Unsere gemeinsamen Träume, wie eine Reise nach Italien, ein gemeinsames Zuhause oder einfach viele weitere Jahre voller Liebe.</p>
+      </section>
+      
+      <section id="love-diary" class="section hidden" aria-labelledby="diary-heading">
+        <h2 id="diary-heading">Tagebuch der Liebe</h2>
+        <p>Kleine Anekdoten und Liebesbotschaften, z. B. „Erinnerst du dich, wie wir im Regen getanzt haben?"</p>
+      </section>
+    </main>
+  </div>
+  
+  <canvas id="confettiCanvas" aria-hidden="true"></canvas>
+  <canvas id="sparkleCanvas" aria-hidden="true"></canvas>
+  
+  <!-- Defer non-critical JavaScript -->
+  <script defer src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+  <script defer src="script.js"></script>
 </body>
 </html>
